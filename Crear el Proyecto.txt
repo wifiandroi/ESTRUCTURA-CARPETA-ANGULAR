@@ -3,7 +3,7 @@ Paso 1: Crear el Proyecto
 ### Usaremos CSS para estilos y especificar que no quieres SSR desde el inicio.
 -> ng new estructura-directorios --style=css --ssr=false
 ### Añade soporte para rutas desde el inicio.
--> ng new estructura-directorios --routing --style=scss
+-> ng new estructura-directorios --routing --style=scss --ssr=false
 ### 
 cd nombre-de-tu-app
 

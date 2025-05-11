@@ -1,0 +1,23 @@
+INICIO
+  |
+  |-- Mostrar comandos en consola: `@echo off`
+  |
+  |-- [Componentes]
+  |     |-- Generar componente: auth
+  |     |-- Generar componente: home
+  |     |-- Generar componente: register
+  |
+  |-- [Servicios]
+  |     |-- Generar servicio: helpers/services/auth
+  |
+  |-- [Modelos]
+  |     |-- Crear carpeta: src/app/helpers/models
+  |     |-- Crear archivo: role.ts con interfaz Role
+  |     |-- Crear archivo: user.ts con import Role + interfaz User
+  |     |-- Crear archivo: login-user.ts con interfaz LoginUser
+  |     |-- Crear archivo: new-user.ts con interfaz NewUser
+  |
+  |-- [Environment]
+  |     |-- Ejecutar: ng generate environments
+  |
+FIN

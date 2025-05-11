@@ -1,0 +1,141 @@
+Paso 1: Crear el Proyecto
+-> ng new estructura-directorios
+### Usaremos CSS para estilos y especificar que no quieres SSR desde el inicio.
+-> ng new estructura-directorios --style=css --ssr=false
+### Añade soporte para rutas desde el inicio.
+-> ng new estructura-directorios --routing --style=scss
+### 
+cd nombre-de-tu-app
+
+-> cd structura-directorios
+
+
+
+Paso 2: Crear los subdirectorios dentro del Proyecto: Vamos a crear las siguientes carpetas:
+
+
+mkdir src/app/core
+mkdir src/app/shared
+mkdir src/app/features
+mkdir src/app/layout
+
+
+Paso 3: Crear la estructura dentro del directorio CORE
+=> Contiene funcionalidades globales y singleton que se cargan una sola vez (por ejemplo, servicios para autenticación, interceptores de HTTP, etc.). Es común importarlo solo una vez en AppModule.
+
+GENERAR:
+
+ng generate module core
+mkdir src/app/core/interceptors
+mkdir src/app/core/guards
+mkdir src/app/core/services
+
+::::::::::::::::::::
+::::::::::::::::
+- interceptors/: Clases que interceptan las peticiones HTTP, útiles para añadir tokens, manejar errores globalmente, etc.
+- guards/: Autorización y control de rutas (por ejemplo, AuthGuard para proteger rutas privadas).
+- services/: Servicios de propósito general (singleton), como AuthService, ApiService, etc.
+- core.module.ts: Módulo que agrupa e inyecta todo lo anterior, y se importa sólo en el AppModule.
+:::::::::::::::::
+::::::::::::::::::::
+
+
+
+
+Paso 4: Crear la estructura dentro del directorio SHARED
+=> Alberga elementos reutilizables entre distintos módulos: componentes UI pequeños, pipes, directivas, etc.
+
+
+GENERAR:
+
+ng generate module shared
+mkdir src/app/shared/components
+mkdir src/app/shared/directives
+mkdir src/app/shared/pipes
+
+::::::::::::::::::::
+::::::::::::::::
+- components/: Botones, modales, tablas u otros widgets reutilizables.
+- directives/: Directivas personalizadas, como una para manejo de permisos, autofocus, etc.
+- pipes/: Transformaciones de datos personalizadas (e.g., formatear fechas, truncar texto).
+- shared.module.ts: Módulo que exporta todos estos elementos para que puedan ser usados en otros módulos (features, por ejemplo).
+:::::::::::::::::
+::::::::::::::::::::
+
+
+
+
+
+Paso 5: Crear la estructura dentro del directorio FEATURES
+=> Contiene los módulos funcionales o pantallas principales de la aplicación, cada uno enfocado en un dominio específico.
+
+
+GENERAR:
+
+
+ng generate module features/auth --routing
+ng generate component features/auth/pages/login --skip-tests
+ng generate module features/dashboard --routing
+ng generate component features/dashboard/pages/home --skip-tests
+ng generate module features/profile --routing
+ng generate component features/profile/pages/profile --skip-tests
+
+
+
+::::::::::::::::::::
+::::::::::::::::
+- auth/: Módulo de autenticación (login, registro, recuperación de contraseña, etc.).
+- dashboard/: Vista principal para usuarios autenticados.
+- profile/: Gestión del perfil de usuario (editar información, cambiar contraseña, etc.).
+
+Cada subcarpeta puede contener su propio módulo (auth.module.ts, etc.), componentes, servicios y rutas específicas.
+:::::::::::::::::
+::::::::::::::::::::
+
+
+Paso 6: Crear la estructura dentro del directorio LAYOUT 
+=> Define la estructura visual persistente de la aplicación (no cambia entre rutas).
+
+
+GENERAR:
+
+ng generate component layout/layout --skip-tests
+ng generate component layout/header --skip-tests
+ng generate component layout/footer --skip-tests
+ng generate component layout/sidebar --skip-tests
+
+
+
+::::::::::::::::::::
+::::::::::::::::
+- header/: Barra de navegación superior.
+- footer/: Pie de página.
+- layout.component.ts: Componente contenedor que renderiza la estructura base (<router-outlet> y los elementos de header/footer/sidebar).
+:::::::::::::::::
+::::::::::::::::::::
+
+
+
+Paso 6: Crear el ENVIROMENTS
+=> Define el
+
+ng generate environments
+
+
+
+
+Paso 7: Crear carpeta y ejecución .BAT
+=> Define el
+
+mkdir scripts
+New-Item scripts/README.md -ItemType "file"
+New-Item scripts/estructura-generacion-angular.txt -ItemType "file"
+New-Item scripts/estructura.bat -ItemType "file"
+
+scripts\estructura.bat
+
+
+
+
+
+
